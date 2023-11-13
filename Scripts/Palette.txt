@@ -1,0 +1,12 @@
+Background Colors:
+	50: Color(#f8fafc)
+	100: Color(#f1f5f9)
+	200: Color(#e2e8f0)
+	300: Color(#cbd5e1)
+	400: Color(#94a3b8)
+	500: Color(#64748b)
+	600: Color(#475569)
+	700: Color(#334155)
+	800: Color(#1e293b)
+	900: Color(#0f172a) (Background)
+	950: Color(#020617)
