@@ -1,0 +1,22 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://wufirajy5lgs"]
+
+[resource]
+content_margin_left = 10.0
+content_margin_top = 28.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.117647, 0.160784, 0.231373, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.254902, 0.333333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+expand_margin_left = 8.0
+expand_margin_top = 36.0
+expand_margin_right = 8.0
+expand_margin_bottom = 6.0

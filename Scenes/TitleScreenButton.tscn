@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://dejhd234j8plk"]
+
+[ext_resource type="FontFile" uid="uid://b2aynf5g7yq7b" path="res://Assets/UbuntuBold.ttf" id="1_4op0p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2jwv"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+bg_color = Color(0.278431, 0.333333, 0.411765, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.392157, 0.454902, 0.545098, 1)
+corner_radius_top_left = 99
+corner_radius_top_right = 99
+corner_radius_bottom_right = 99
+corner_radius_bottom_left = 99
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbor8"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+bg_color = Color(0.2, 0.254902, 0.333333, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.392157, 0.454902, 0.545098, 1)
+corner_radius_top_left = 99
+corner_radius_top_right = 99
+corner_radius_bottom_right = 99
+corner_radius_bottom_left = 99
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a6f6"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+bg_color = Color(0.117647, 0.160784, 0.231373, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.2, 0.254902, 0.333333, 1)
+corner_radius_top_left = 99
+corner_radius_top_right = 99
+corner_radius_bottom_right = 99
+corner_radius_bottom_left = 99
+corner_detail = 20
+
+[node name="TitleScreenButton" type="Button"]
+anchors_preset = -1
+anchor_right = 0.0208333
+anchor_bottom = 0.0277778
+offset_right = -40.0
+offset_bottom = -30.0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 12
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("1_4op0p")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_x2jwv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fbor8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a6f6")
+metadata/_edit_use_anchors_ = true
