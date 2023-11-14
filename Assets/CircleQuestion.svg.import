@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bavq4h5gdmb7x"
-path="res://.godot/imported/FolderPlus.svg-07eb7c2839aec939111713383b3e11c8.ctex"
+uid="uid://c4lcfye713cod"
+path="res://.godot/imported/CircleQuestion.svg-b48a41d57af6ed17b65beaa8218940a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/FolderPlus.svg"
-dest_files=["res://.godot/imported/FolderPlus.svg-07eb7c2839aec939111713383b3e11c8.ctex"]
+source_file="res://Assets/CircleQuestion.svg"
+dest_files=["res://.godot/imported/CircleQuestion.svg-b48a41d57af6ed17b65beaa8218940a8.ctex"]
 
 [params]
 
