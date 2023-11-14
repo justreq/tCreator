@@ -1,4 +1,6 @@
 extends Control
 
+@onready var TitleScreenContent = $PanelContainer/TitleScreenContent
+
 func onCreatingAModButtonPressed():
-	pass # Change visible panel
+	TitleScreenContent.visible = false

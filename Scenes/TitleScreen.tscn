@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfvxymato8ink"]
+[gd_scene load_steps=11 format=3 uid="uid://dfvxymato8ink"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_5bsuv"]
 [ext_resource type="FontFile" uid="uid://b2aynf5g7yq7b" path="res://Assets/UbuntuBold.ttf" id="1_pvcrj"]
 [ext_resource type="PackedScene" uid="uid://dejhd234j8plk" path="res://Scenes/TitleScreenButton.tscn" id="3_5be7s"]
 [ext_resource type="Texture2D" uid="uid://c4lcfye713cod" path="res://Assets/CircleQuestion.svg" id="5_c0n63"]
 [ext_resource type="Texture2D" uid="uid://cv77r0m64f4on" path="res://Assets/FolderOpen.svg" id="6_0ptyy"]
+[ext_resource type="StyleBox" uid="uid://ltnkogms7bhp" path="res://Styles/Window.tres" id="6_o6gwl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l3wu"]
 bg_color = Color(0.0588235, 0.0901961, 0.164706, 1)
@@ -16,6 +17,10 @@ font_size = 100
 [sub_resource type="LabelSettings" id="LabelSettings_ftvhy"]
 font = ExtResource("1_pvcrj")
 font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_ir8pu"]
+font = ExtResource("1_pvcrj")
+font_size = 50
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -35,43 +40,71 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8l3wu")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="TitleScreenContent" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 200
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/TitleScreenContent"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TitleScreenContent/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "tCreator"
 label_settings = SubResource("LabelSettings_typuo")
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Subtitle" type="Label" parent="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "[Insert subtitle that I haven't come up with]"
 label_settings = SubResource("LabelSettings_ftvhy")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="OpenModProjectButton" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_5be7s")]
+[node name="OpenModProjectButton" parent="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_5be7s")]
 layout_mode = 2
 text = "Open Mod Project"
 icon = ExtResource("6_0ptyy")
 
-[node name="CreatingAModButton" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_5be7s")]
+[node name="CreatingAModButton" parent="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_5be7s")]
 layout_mode = 2
 text = "Creating A Mod"
 icon = ExtResource("5_c0n63")
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/CreatingAModButton" to="." method="onCreatingAModButtonPressed"]
+[node name="CreatingAModGuideContent" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/CreatingAModGuideContent"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_o6gwl")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CreatingAModGuideContent/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Guide: Creating A Mod With tModLoader"
+label_settings = SubResource("LabelSettings_ir8pu")
+
+[node name="Label" type="Label" parent="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "While tCreator allows you to create mods for tModLoader using visual scripting, it doesn't actually handle the creation of mods. Since tModLoader already does all the things required to get a mod started, I saw no purpose in recreating it in tCreator. As such, here is a guide for anyone who doesn't know how to create a mod. If you already have a mod created, click \"Open Mod Project\"."
+
+[connection signal="pressed" from="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/CreatingAModButton" to="." method="onCreatingAModButtonPressed"]
