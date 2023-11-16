@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tuftdntk26j3"
-path="res://.godot/imported/flag-solid.svg-f443982cac7d006eea43c772e2428bae.ctex"
+uid="uid://coljm3xpjge8n"
+path="res://.godot/imported/XMark.svg-5b05bfbe125416d5e009fbac2833d561.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/fontawesome/flag-solid.svg"
-dest_files=["res://.godot/imported/flag-solid.svg-f443982cac7d006eea43c772e2428bae.ctex"]
+source_file="res://Assets/XMark.svg"
+dest_files=["res://.godot/imported/XMark.svg-5b05bfbe125416d5e009fbac2833d561.ctex"]
 
 [params]
 
