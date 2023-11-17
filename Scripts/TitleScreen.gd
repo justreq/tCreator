@@ -2,13 +2,16 @@ extends Control
 
 var openModProjectPanelVisible = false: set = setOpenModProjectPanelVisible
 var creatingAModGuideVisible = false: set = setCreatingAModGuideVisible
-var modSources = getContentsOfDirectory(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS) + "/My Games/Terraria/tModLoader/ModSources")
+
+var modSources = Globals.getContentsOfDirectory(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS) + "/My Games/Terraria/tModLoader/ModSources")
+
+var modProjectButtonScene = preload("res://Scenes/ModProjectButton.tscn")
 
 @onready var titleScreenContent = $PanelContainer/TitleScreenContent
 @onready var openModProjectPanelContent = $PanelContainer/OpenModProjectPanelContent
 @onready var creatingAModGuideContent = $PanelContainer/CreatingAModGuideContent
 @onready var emptyDirectoryText = $PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer/EmptyDirectoryText
-@onready var modProjectsContainer = $PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer/VBoxContainer/ModProjectsContainer
+@onready var modProjectsContainer = $PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ModProjectsContainer
 
 func _ready():
 	openModProjectPanelVisible = false
@@ -21,7 +24,9 @@ func _ready():
 		return
 	
 	for i in modSources["folders"]:
-		print(i)
+		var modProjectButton = modProjectButtonScene.instantiate()
+		modProjectButton.set("path", modSources["path"] + "/" + i)
+		modProjectsContainer.add_child(modProjectButton)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -54,18 +59,3 @@ func onExitButtonPressed():
 
 func onRichTextLabelMetaClicked(meta):
 	OS.shell_open(meta)
-
-func getContentsOfDirectory(path):
-	var dir = DirAccess.open(path)
-	if !dir:
-		return null
-	
-	dir.list_dir_begin()
-	var directoryContents = {"path": path, "files": [], "folders": []}
-	var file_name = dir.get_next()
-	
-	while file_name != "":
-		directoryContents["folders" if dir.current_is_dir() else "files"].append(file_name)
-		file_name = dir.get_next()
-	
-	return directoryContents

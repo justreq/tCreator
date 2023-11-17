@@ -1,20 +1,17 @@
 extends Button
 
-@export var modIcon: Texture2D
-@export var modDisplayName: String
-@export var versionNumber: String
-@export var authorName: String
+@export var path: String
 
 @onready var modIconTextureRect = $MarginContainer/HBoxContainer/TextureRect
-@onready var modDisplayNameAndVersionNumberLabel = $MarginContainer/HBoxContainer/VBoxContainer/Label
+@onready var modDisplayNameLabel = $MarginContainer/HBoxContainer/VBoxContainer/Label
 @onready var modAuthorNameLabel = $MarginContainer/HBoxContainer/VBoxContainer/Label2
 
 func _ready():
-	assert(modIcon, "Mod Icon required")
-	assert(modDisplayName, "Mod Display Name required")
-	assert(versionNumber, "Version Number required")
-	assert(authorName, "Author Name required")
+	assert(path, "Mod Project Path required")
 	
-	modIconTextureRect.texture = modIcon
-	modDisplayNameAndVersionNumberLabel.text = modDisplayName + " v" + versionNumber
-	modAuthorNameLabel.text = authorName
+	var modIcon = Image.new()
+	modIcon.load(path + "/icon.png")
+	
+	modIconTextureRect.texture = ImageTexture.create_from_image(modIcon)
+	modDisplayNameLabel.text = Globals.getBuildPropertyValue(path + "/build.txt", "displayName")
+	modAuthorNameLabel.text = Globals.getBuildPropertyValue(path + "/build.txt", "author")
