@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfvxymato8ink"]
+[gd_scene load_steps=21 format=3 uid="uid://dfvxymato8ink"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_5bsuv"]
 [ext_resource type="FontFile" uid="uid://b2aynf5g7yq7b" path="res://Assets/UbuntuBold.ttf" id="1_pvcrj"]
@@ -19,6 +19,17 @@ font_size = 100
 [sub_resource type="LabelSettings" id="LabelSettings_ftvhy"]
 font = ExtResource("1_pvcrj")
 font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ex32"]
+font = ExtResource("7_2v04u")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_ah1ya"]
+font = ExtResource("1_pvcrj")
+font_size = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1f1vs"]
+content_margin_right = 8.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ir8pu"]
 font = ExtResource("1_pvcrj")
@@ -101,7 +112,57 @@ layout_mode = 2
 text = "Creating A Mod"
 icon = ExtResource("5_c0n63")
 
+[node name="OpenModProjectPanelContent" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/OpenModProjectPanelContent"]
+custom_minimum_size = Vector2(700, 700)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_o6gwl")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/OpenModProjectPanelContent/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="EmptyDirectoryText" type="Label" parent="PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "Looks like you don't have any mod projects. You should probably make one first :/"
+label_settings = SubResource("LabelSettings_3ex32")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Open Mod Project"
+label_settings = SubResource("LabelSettings_ah1ya")
+
+[node name="ModProjectsContainer" type="ScrollContainer" parent="PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitButton" type="Button" parent="PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_constants/icon_max_width = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1f1vs")
+action_mode = 0
+icon = ExtResource("8_0cduy")
+flat = true
+icon_alignment = 1
+
 [node name="CreatingAModGuideContent" type="MarginContainer" parent="PanelContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
@@ -170,10 +231,10 @@ theme_override_fonts/bold_font = ExtResource("1_pvcrj")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "Open tModLoader and navigate to [b]Workshop ⇾ Develop Mods ⇾ Create Mod[/b]. Now, fill out the text fields. Once you've filled out all required text fields, click \"Create Mod\" and you're done! Now click \"Open Mod Project\" and select your new mod's folder to start working on it."
+text = "Open tModLoader and navigate to [b]Workshop ⇾ Develop Mods ⇾ Create Mod[/b]. Now, fill out the text fields. Once you've filled out all required text fields, click \"Create Mod\" and you're done! Now go back to the main menu of tCreator, click \"Open Mod Project\", and select your new mod's folder to start working on it."
 fit_content = true
 
-[node name="Label2" type="Label" parent="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Resources" type="Label" parent="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resources"
 label_settings = SubResource("LabelSettings_vb8nv")
@@ -206,7 +267,9 @@ icon = ExtResource("8_0cduy")
 flat = true
 icon_alignment = 1
 
+[connection signal="pressed" from="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/OpenModProjectButton" to="." method="onOpenModProjectButtonPressed"]
 [connection signal="pressed" from="PanelContainer/TitleScreenContent/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/CreatingAModButton" to="." method="onCreatingAModButtonPressed"]
+[connection signal="pressed" from="PanelContainer/OpenModProjectPanelContent/PanelContainer/MarginContainer/ExitButton" to="." method="onExitButtonPressed"]
 [connection signal="meta_clicked" from="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/RichTextLabel" to="." method="onRichTextLabelMetaClicked"]
 [connection signal="meta_clicked" from="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/RichTextLabel3" to="." method="onRichTextLabelMetaClicked"]
 [connection signal="pressed" from="PanelContainer/CreatingAModGuideContent/PanelContainer/MarginContainer/ExitButton" to="." method="onExitButtonPressed"]
