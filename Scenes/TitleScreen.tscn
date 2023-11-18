@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://dfvxymato8ink"]
 
-[ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_5bsuv"]
+[ext_resource type="Script" path="res://Scripts/Scenes/TitleScreen.gd" id="1_5bsuv"]
 [ext_resource type="FontFile" uid="uid://b2aynf5g7yq7b" path="res://Assets/UbuntuBold.ttf" id="1_pvcrj"]
-[ext_resource type="PackedScene" uid="uid://dejhd234j8plk" path="res://Scenes/TitleScreenButton.tscn" id="3_5be7s"]
+[ext_resource type="PackedScene" uid="uid://dejhd234j8plk" path="res://Scenes/Nodes/TitleScreenButton.tscn" id="3_5be7s"]
 [ext_resource type="Texture2D" uid="uid://c4lcfye713cod" path="res://Assets/CircleQuestion.svg" id="5_c0n63"]
 [ext_resource type="Texture2D" uid="uid://cv77r0m64f4on" path="res://Assets/FolderOpen.svg" id="6_0ptyy"]
 [ext_resource type="StyleBox" uid="uid://ltnkogms7bhp" path="res://Styles/Window.tres" id="6_o6gwl"]
@@ -73,7 +73,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8l3wu")
 
 [node name="TitleScreenContent" type="MarginContainer" parent="PanelContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 200
 

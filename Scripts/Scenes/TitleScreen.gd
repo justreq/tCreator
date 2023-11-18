@@ -3,9 +3,7 @@ extends Control
 var openModProjectPanelVisible = false: set = setOpenModProjectPanelVisible
 var creatingAModGuideVisible = false: set = setCreatingAModGuideVisible
 
-var modSources = Globals.getContentsOfDirectory(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS) + "/My Games/Terraria/tModLoader/ModSources")
-
-var modProjectButtonScene = preload("res://Scenes/ModProjectButton.tscn")
+var modProjectButtonScene = preload("res://Scenes/Nodes/ModProjectButton.tscn")
 
 @onready var titleScreenContent = $PanelContainer/TitleScreenContent
 @onready var openModProjectPanelContent = $PanelContainer/OpenModProjectPanelContent
@@ -18,14 +16,14 @@ func _ready():
 	creatingAModGuideVisible = false
 	titleScreenContent.visible = true
 	
-	emptyDirectoryText.visible = modSources == null || modSources["folders"].is_empty()
+	emptyDirectoryText.visible = Main.modSources == null || Main.modSources["folders"].is_empty()
 	
 	if emptyDirectoryText.visible:
 		return
 	
-	for i in modSources["folders"]:
+	for i in Main.modSources["folders"]:
 		var modProjectButton = modProjectButtonScene.instantiate()
-		modProjectButton.set("path", modSources["path"] + "/" + i)
+		modProjectButton.set("path", Main.modSources["path"] + "/" + i)
 		modProjectsContainer.add_child(modProjectButton)
 
 func _process(_delta):

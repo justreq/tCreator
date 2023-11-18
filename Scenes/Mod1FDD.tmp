@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://uumc3qf5afys"]
+
+[ext_resource type="Script" path="res://Scripts/Scenes/ModProjectEditorScreen.gd" id="1_c8hsy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xir6k"]
+bg_color = Color(0.117647, 0.160784, 0.231373, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xuxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlide"]
+bg_color = Color(0.2, 0.254902, 0.333333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p004c"]
+bg_color = Color(0.117647, 0.160784, 0.231373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fug66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igcwl"]
+
+[node name="ModProjectEditorScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c8hsy")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xir6k")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5xuxy")
+
+[node name="Editor" type="HSplitContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DirectoryExplorer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlide")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p004c")
+
+[node name="Tree" type="Tree" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+focus_mode = 0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor"]
+layout_mode = 2
+
+[node name="MainWindow" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/HSplitContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fug66")
+
+[node name="PropertiesPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/HSplitContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_igcwl")

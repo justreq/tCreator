@@ -13,5 +13,9 @@ func _ready():
 	modIcon.load(path + "/icon.png")
 	
 	modIconTextureRect.texture = ImageTexture.create_from_image(modIcon)
-	modDisplayNameLabel.text = Globals.getBuildPropertyValue(path + "/build.txt", "displayName")
-	modAuthorNameLabel.text = Globals.getBuildPropertyValue(path + "/build.txt", "author")
+	modDisplayNameLabel.text = Main.getBuildPropertyValue(path + "/build.txt", "displayName")
+	modAuthorNameLabel.text = Main.getBuildPropertyValue(path + "/build.txt", "author")
+
+func onPressed():
+	Main.modProjectDirectory = path
+	get_tree().change_scene_to_file("res://Scenes/ModProjectEditorScreen.tscn")
