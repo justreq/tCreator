@@ -114,7 +114,9 @@ layout_mode = 2
 [node name="SearchFilesLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 1
 theme_override_fonts/font = ExtResource("4_ama3k")
+theme_override_font_sizes/font_size = 16
 placeholder_text = "Search files"
 context_menu_enabled = false
 
@@ -142,7 +144,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_p004c")
 
 [node name="Tree" type="Tree" parent="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer2/PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 focus_mode = 0
+theme_override_constants/v_separation = 4
+theme_override_constants/draw_relationship_lines = 1
+theme_override_constants/draw_guides = 0
 allow_search = false
 
 [node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Editor"]
@@ -159,4 +165,5 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_igcwl")
 
+[connection signal="text_changed" from="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/SearchFilesLineEdit" to="." method="onSearchFilesLineEditTextChanged"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/ToggleHiddenFilesButton" to="." method="onToggleHiddenFilesButtonToggled"]

@@ -20,7 +20,7 @@ func getContentsOfDirectory(path, categorize = true):
 		if categorize:
 			directoryContents["folders" if dir.current_is_dir() else "files"].append(file_name)
 		else:
-			directoryContents["contents"].append({"name": file_name, "isDir": dir.current_is_dir()})
+			directoryContents["contents"].append({"path": path + "/" + file_name,"name": file_name, "isDir": dir.current_is_dir(), "isHidden": path.split("/")[-2] == "ModSources" && file_name in ["bin", "obj", "Properties"]})
 		
 		file_name = dir.get_next()
 	
@@ -30,3 +30,10 @@ func readFile(path):
 	var file = FileAccess.open(path, FileAccess.READ)
 	assert(FileAccess.file_exists(path), "File not found")
 	return file.get_as_text()
+
+func findItemInDirectoryArray(array, key, value):
+	for i in array:
+		if i[key] == value:
+			return i
+	
+	return null
