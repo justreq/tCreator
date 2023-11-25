@@ -165,5 +165,6 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_igcwl")
 
+[connection signal="gui_input" from="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/SearchFilesLineEdit" to="." method="onSearchFilesLineEditGuiInput"]
 [connection signal="text_changed" from="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/SearchFilesLineEdit" to="." method="onSearchFilesLineEditTextChanged"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/ToggleHiddenFilesButton" to="." method="onToggleHiddenFilesButtonToggled"]

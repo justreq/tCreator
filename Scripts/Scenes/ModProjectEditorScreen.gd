@@ -1,5 +1,8 @@
 extends Control
 
+var selectedFilePath = null
+var selectedFolderPath = null
+
 @onready var searchFilesLineEdit = $PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/SearchFilesLineEdit
 @onready var toggleHiddenFilesButton = $PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/ToggleHiddenFilesButton
 @onready var directoryTree = $PanelContainer/MarginContainer/VBoxContainer/Editor/DirectoryExplorer/VBoxContainer/MarginContainer2/PanelContainer/Tree
@@ -41,3 +44,12 @@ func onSearchFilesLineEditTextChanged(new_text):
 			continue
 		
 		i.visible = new_text.is_empty() || fileInfo["name"].to_lower().contains(new_text.to_lower())
+
+func onSearchFilesLineEditGuiInput(event):
+	if !(event is InputEventKey):
+		return
+	
+	var keyPress = event as InputEventKey
+	
+	if keyPress.keycode in [KEY_ENTER, KEY_ESCAPE]:
+		searchFilesLineEdit.release_focus()
